@@ -26,3 +26,14 @@ body{
   height: 45px;
   border-radius: 50%;
 }
+
+.time-body{
+  display: flex;
+  justify-content: flex-start;
+}
+
+.hour,.minute,.second,.ms{
+  border: 1px solid black;
+  text-align: center;
+  width: auto;
+}

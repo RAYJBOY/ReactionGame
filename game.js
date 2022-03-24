@@ -3,7 +3,6 @@ var innerCircle = document.querySelector('.internal');
 var outerCircleWidth = outerCircle.offsetWidth;
 var outerCircleHeight = outerCircle.offsetHeight;
 
-
 const onButtonClick = () => {
   let XCoordinate = Math.floor(Math.random() * window.innerWidth);
   let YCoordinate = Math.floor(Math.random() * window.innerHeight);
@@ -18,3 +17,8 @@ const onButtonClick = () => {
 }
 
 outerCircle.addEventListener('click', onButtonClick);
+
+//------------------------------------Timer---------------------------------------
+
+const myTimer = new Timer();
+myTimer.startTimer();
