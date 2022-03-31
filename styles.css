@@ -10,6 +10,22 @@ body{
   overflow: hidden;
 }
 
+.startContainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: red;
+}
+
+.timer-container{
+  background: yellow;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 5vh;
+}
+
 .external{
   background: black;
   width: 51px;
