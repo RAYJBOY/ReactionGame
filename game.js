@@ -12,6 +12,7 @@ var timerHeight = timerBox.offsetHeight;
 var scoreHeight = score.offsetHeight;
 
 var scoreValue = 0;
+var myTimer = new Timer();
 
 const gameHTML = `<div class="body-container">
 
@@ -62,11 +63,25 @@ const gameHTML = `<div class="body-container">
 
 </div><!--end of body-container -->`;
 
+const endGameHTML = `<div class="body-container">
+
+  <div class="gameOver">
+    <p>GAME OVER!</p>
+    <div class="endOfGameScore">
+      <p>Your total time: </p>
+      <p class="finalScore"></p>
+    </div>
+  </div>
+
+  <button class="BackToMainMenu">Back to main menu</button>
+
+</div><!--end of body-container -->`;
+
 //-----------------------------End of vars-----------------------------------
 
 //-----------------------------Functions-------------------------------------
 const onButtonClick = () => {
-  if (scoreValue < 20){
+  if (scoreValue < 10){
     let XCoordinate = Math.floor(Math.random() * window.innerWidth);
     let YCoordinate = Math.floor(Math.random() * window.innerHeight);
     if(XCoordinate >= (window.innerWidth-outerCircleWidth)){
@@ -89,19 +104,38 @@ const onButtonClick = () => {
 
 const onStartClick = () => {
   bodyHTML.innerHTML = gameHTML;
+  myTimer.setup();
   outerCircle = document.querySelector('.external');
   timerBox = document.querySelector('.timer-container');
   score = document.querySelector('.score');
   score.innerHTML = `0`;
+  scoreValue = 0;
   outerCircleWidth = outerCircle.offsetWidth;
   outerCircleHeight = outerCircle.offsetHeight;
   outerCircle.addEventListener('click', onButtonClick);
-  const myTimer = new Timer();
   myTimer.startTimer();
 }
 
-function endGame(){
-  console.log("End of game function");
+const endGame = () => {
+  myTimer.endTimer();
+  bodyHTML.innerHTML = endGameHTML;
+  var finalScore = document.querySelector('.finalScore');
+  var mainMenu = document.querySelector('.BackToMainMenu');
+  scoreString = myTimer.totalMS + " ms";
+  finalScore.innerHTML = scoreString;
+  mainMenu.addEventListener('click', backToMenu);
+  //add end of game html
+  //add method in timer class to get total time in seconds
+  //show user average time per shot
+}
+
+const backToMenu = () => {
+  const mainMenuHTML = `<div class="startContainer">
+    <button class="startButton">CLICK HERE TO START!</button>
+  </div>`;
+  bodyHTML.innerHTML = mainMenuHTML;
+  const startButton = document.querySelector('.startButton');
+  startButton.addEventListener('click', onStartClick);
 }
 //---------------------------End of functions----------------------------------
 
