@@ -15,45 +15,38 @@ var scoreValue = 0;
 var myTimer = new Timer();
 
 const gameHTML = `<div class="body-container">
+  <div class="myheader">
+    <div class="timer-container">
+      <div class="time-body">
+        <div class="hour">
+        </div>
 
-  <div class="timer-container">
-    <div class="time-body">
-      <div class="hour">
-        <p>HOUR</p>
-        <p>hour</p>
+        <div class="colon">:
+        </div>
+
+        <div class="minute">
+        </div>
+
+        <div class="colon">:
+        </div>
+
+        <div class="second">
+        </div>
+
+        <div class="colon">:
+        </div>
+
+        <div class="ms">
+        </div>
+      </div><!--end of timer divs -->
+    </div><!--end of timer container -->
+
+    <div class="scoreContainer">
+      <p>Score: </p>
+      <div class="score">
+        <p>0</p>
       </div>
-
-      <div class="colon">
-        <p>:</p>
-      </div>
-
-      <div class="minute">
-        <p>MINUTE</p>
-        <p>minute</p>
-      </div>
-
-      <div class="colon">
-        <p>:</p>
-      </div>
-
-      <div class="second">
-        <p>SECOND</p>
-        <p>second</p>
-      </div>
-
-      <div class="colon">
-        <p>:</p>
-      </div>
-
-      <div class="ms">
-        <p>MS</p>
-        <p>ms</p>
-      </div>
-    </div><!--end of timer divs -->
-  </div><!--end of timer container -->
-
-  <div class="score">
-    <p>score</p>
+    </div>
   </div>
 
   <div class="external">
@@ -87,8 +80,8 @@ const onButtonClick = () => {
     if(XCoordinate >= (window.innerWidth-outerCircleWidth)){
       XCoordinate = (window.innerWidth-outerCircleWidth);
     }
-    if(YCoordinate >= (window.innerHeight-outerCircleHeight)){
-      YCoordinate = (window.innerHeight-(outerCircleHeight+timerHeight+scoreHeight));
+    if(YCoordinate >= (window.innerHeight-(outerCircleHeight+timerHeight+scoreHeight))){
+      YCoordinate = (window.innerHeight-(outerCircleHeight+timerHeight+scoreHeight+5));
     }
     outerCircle.style.marginTop = YCoordinate.toString()+"px";
     outerCircle.style.marginLeft = XCoordinate.toString()+"px";

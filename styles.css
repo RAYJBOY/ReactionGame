@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
 }
 
 body{
@@ -10,20 +11,45 @@ body{
   overflow: hidden;
 }
 
+.myheader{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 5px;
+}
+
 .startContainer{
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
   background: red;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.startInstructions{
+  width: 500px;
+  text-align: center;
+}
+
+.startButton{
+  border-radius: 50%;
+  font-size: 20px;
+  width: 200px;
+  height: 100px;
+  background-image: url("images/test-2.png");
+  background-size: 100% 100%;
+  border: 1px black solid;
+  cursor: pointer;
 }
 
 .timer-container{
-  background: yellow;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 5vh;
+  margin-left: 47.5%;
 }
 
 .external{
@@ -45,13 +71,16 @@ body{
 
 .time-body{
   display: flex;
-  justify-content: flex-start;
 }
 
 .hour,.minute,.second,.ms{
-  border: 1px solid black;
   text-align: center;
   width: auto;
+}
+
+.scoreContainer{
+  display: flex;
+  margin-right: 5px;
 }
 
 .gameOver{
